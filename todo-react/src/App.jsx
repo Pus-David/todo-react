@@ -1,122 +1,97 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+function App(props) {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
+    <div className="todoapp stack-large">
+      <h1>TodoMatic</h1>
+      <form>
+        <h2 className="label-wrapper">
+          <label htmlFor="new-todo-input" className="label__lg">
+            What needs to be done?
+          </label>
+        </h2>
+        <input
+          type="text"
+          id="new-todo-input"
+          className="input input__lg"
+          name="text"
+          autoComplete="off"
+        />
+        <button type="submit" className="btn btn__primary btn__lg">
+          Add
         </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      </form>
+      <div className="filters btn-group stack-exception">
+        <button type="button" className="btn toggle-btn" aria-pressed="true">
+          <span className="visually-hidden">Show </span>
+          <span>all</span>
+          <span className="visually-hidden"> tasks</span>
+        </button>
+        <button type="button" className="btn toggle-btn" aria-pressed="false">
+          <span className="visually-hidden">Show </span>
+          <span>Active</span>
+          <span className="visually-hidden"> tasks</span>
+        </button>
+        <button type="button" className="btn toggle-btn" aria-pressed="false">
+          <span className="visually-hidden">Show </span>
+          <span>Completed</span>
+          <span className="visually-hidden"> tasks</span>
+        </button>
+      </div>
+      <h2 id="list-heading">3 tasks remaining</h2>
+      <ul
+        role="list"
+        className="todo-list stack-large stack-exception"
+        aria-labelledby="list-heading">
+        <li className="todo stack-small">
+          <div className="c-cb">
+            <input id="todo-0" type="checkbox" defaultChecked />
+            <label className="todo-label" htmlFor="todo-0">
+              Eat
+            </label>
+          </div>
+          <div className="btn-group">
+            <button type="button" className="btn">
+              Edit <span className="visually-hidden">Eat</span>
+            </button>
+            <button type="button" className="btn btn__danger">
+              Delete <span className="visually-hidden">Eat</span>
+            </button>
+          </div>
+        </li>
+        <li className="todo stack-small">
+          <div className="c-cb">
+            <input id="todo-1" type="checkbox" />
+            <label className="todo-label" htmlFor="todo-1">
+              Sleep
+            </label>
+          </div>
+          <div className="btn-group">
+            <button type="button" className="btn">
+              Edit <span className="visually-hidden">Sleep</span>
+            </button>
+            <button type="button" className="btn btn__danger">
+              Delete <span className="visually-hidden">Sleep</span>
+            </button>
+          </div>
+        </li>
+        <li className="todo stack-small">
+          <div className="c-cb">
+            <input id="todo-2" type="checkbox" />
+            <label className="todo-label" htmlFor="todo-2">
+              Repeat
+            </label>
+          </div>
+          <div className="btn-group">
+            <button type="button" className="btn">
+              Edit <span className="visually-hidden">Repeat</span>
+            </button>
+            <button type="button" className="btn btn__danger">
+              Delete <span className="visually-hidden">Repeat</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
-export default App
+export default App;
